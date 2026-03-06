@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCart - Profile | Student Stationery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-pencil-ruler"></i>
+                <span>CampusCart</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="cart-count" class="badge">0</span></a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist <span id="wish-count" class="badge">0</span></a>
+                <a href="orders.html"><i class="fas fa-box"></i> Orders</a>
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="profile.html" class="active"><i class="fas fa-user-graduate"></i> Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1>Student Profile</h1>
+            <p class="section-subhead">Manage your account information</p>
+        </div>
+
+        <div class="profile-container">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <h2 id="profile-name"></h2>
+                    <p class="profile-title"><i class="fas fa-graduation-cap"></i> Computer Science · Year 3</p>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <small>Email</small>
+                                <p id="profile-email"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <small>Phone</small>
+                                <p id="profile-phone"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <small>Address</small>
+                                <p id="profile-address"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <small></small>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value" id="profile-orders-count">0</span>
+                            <span class="stat-label">Orders</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="profile-wishlist-count">0</span>
+                            <span class="stat-label">Wishlist</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value" id="profile-cart-count">0</span>
+                            <span class="stat-label">In Cart</span>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary" id="edit-profile-btn">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                <div class="activity-list" id="recent-activity">
+                    <!-- Activity will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3><i class="fas fa-user-edit"></i> Edit Profile</h3>
+            <input type="text" id="edit-name" placeholder="Full Name" value="Alex Rivera">
+            <input type="email" id="edit-email" placeholder="Email" value="alex.r@student.edu">
+            <input type="tel" id="edit-phone" placeholder="Phone" value="+1 (212) 555-7865">
+            <textarea id="edit-address" placeholder="Address" rows="2">221B Baker Hall, Campus</textarea>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="cancelEditBtn">Cancel</button>
+                <button class="btn-primary" id="saveProfileBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p><i class="fas fa-book-open"></i> StudyCart · Student Stationery E-Commerce</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>

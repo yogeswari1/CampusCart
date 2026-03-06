@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusCart - Cart | Student Stationery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-pencil-ruler"></i>
+                <span>CampusCart</span>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="cart.html" class="active"><i class="fas fa-shopping-cart"></i> Cart <span id="cart-count" class="badge">0</span></a>
+                <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist <span id="wish-count" class="badge">0</span></a>
+                <a href="orders.html"><i class="fas fa-box"></i> Orders</a>
+                <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="profile.html"><i class="fas fa-user-graduate"></i> Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-shopping-cart"></i> Your Cart</h1>
+            <p class="section-subhead">Review and place your order</p>
+        </div>
+
+        <!-- Cart Items -->
+        <div id="cart-items-container" class="list-container"></div>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary" id="cart-summary" style="display: none;">
+            <div class="summary-card">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span>2.99</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="cart-total">0.00</span>
+                </div>
+                <button class="checkout-btn" id="checkout-all-btn">
+                    <i class="fas fa-credit-card"></i> Checkout All
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Modal -->
+    <div id="orderModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3><i class="fas fa-truck"></i> Order Details</h3>
+            <input type="text" id="modal-name" placeholder="Full Name" value="Alex Rivera">
+            <input type="tel" id="modal-phone" placeholder="Phone Number" value="+1 212 555 1234">
+            <textarea id="modal-address" placeholder="Delivery Address" rows="2">221B Baker Street, Campus Area</textarea>
+            <select id="modal-payment">
+                <option value="credit">Credit Card</option>
+                <option value="debit">Student Debit Card</option>
+                <option value="campus">Campus Cash</option>
+                <option value="paypal">PayPal</option>
+            </select>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="cancelOrderBtn">Cancel</button>
+                <button class="btn-primary" id="confirmOrderBtn">Confirm Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p><i class="fas fa-book-open"></i> StudyCart · Student Stationery E-Commerce</p>
+        </div>
+    </footer>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+    <script src="pages.js"></script>
+</body>
+</html>
